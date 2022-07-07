@@ -139,4 +139,4 @@ class TelegramNotificationsPlugin(CorePluginMixin, notify.NotificationPlugin):
         receivers = self.get_receivers(group.project)
         payload = self.build_message(group, event)
         for receiver in receivers:
-            safe_execute(self.send_message, payload, receiver, bot, _with_transaction=False)
+            self.send_message(payload, receiver, bot)
